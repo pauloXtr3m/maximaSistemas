@@ -1,19 +1,8 @@
 import React from 'react';
 
-import {WebBrowser} from 'expo';
-import {MonoText} from '../components/StyledText';
 import {AppHeader} from "../components/AppHeader";
-import {Container, Content, Card, CardItem, Header, Body, Icon, Grid, Col, Row} from 'native-base';
+import {Content, Grid, Col} from 'native-base';
 
-import {
-    Image,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-} from 'react-native';
 import Colors from "../constants/Colors";
 import {MenuCard} from "../components/MenuCard";
 import {
@@ -40,24 +29,18 @@ export default class HomeScreen extends React.Component {
 
     render() {
         return (
-            <Container style={styles.homeContainer}>
-                <Grid>
-                    <Row>
+            <Content padder>
+                <Grid >
+                    <Col>
                         <MenuCard menuText={MENU_CLIENTES} imageSourcePath={MENU_CLIENTES_IMAGE} onPressAction={this.goToCustomerDetail}/>
-                        <MenuCard menuText={MENU_PEDIDOS} imageSourcePath={MENU_PEDIDOS_IMAGE}/>
-                    </Row>
-                    <Row>
-                        <MenuCard menuText={MENU_RESUMO_VENDAS} imageSourcePath={MENU_RESUMO_VENDAS_IMAGE}/>
+						<MenuCard menuText={MENU_RESUMO_VENDAS} imageSourcePath={MENU_RESUMO_VENDAS_IMAGE}/>
+                    </Col>
+                    <Col>
+						<MenuCard menuText={MENU_PEDIDOS} imageSourcePath={MENU_PEDIDOS_IMAGE}/>
                         <MenuCard menuText={MENU_FERRAMENTAS} imageSourcePath={MENU_FERRAMENTAS_IMAGE}/>
-                    </Row>
+                    </Col>
                 </Grid>
-            </Container>
+            </Content>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    homeContainer: {
-        backgroundColor: Colors.backgroundColor,
-    }
-});
